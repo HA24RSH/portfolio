@@ -1,17 +1,18 @@
-import React from 'react'
-import { useState } from 'react'
-import Edu from './Edu'
-import "../styles/Career.css"
+import React, { useState } from "react";
+import "../styles/Career.css";
+import Project from "./Project";
+import Edu from "./Edu";
+import Exp from "./Exp";
 
 const Career = () => {
-    const [activeTab, setActiveTab] = useState()
+  const [activeTab, setActiveTab] = useState("education");
 
-    const handleTabClick = (tabName) => {
-        setActiveTab(tabName);
-    };
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
 
-    return (
-        <div id="career" className="tabs-container">
+  return (
+    <div id="career" className="tabs-container">
       <div className="tab-buttons">
         <button
           className={`tab-button ${activeTab === "education" ? "active" : ""}`}
@@ -40,21 +41,20 @@ const Career = () => {
             <Edu className="edu-flex" />
           </div>
         )}
-        {/* {activeTab === "projects" && (
+        {activeTab === "projects" && (
           <div className="edu">
             <h2>Projects</h2>
-            <ProjectsFlex className="project-flex" />
+            <Project className="project-flex" />
           </div>
         )}
         {activeTab === "experience" && (
           <div className="edu">
             <h2>Experience</h2>
-            <ExpAccordian />
+            <Exp />
           </div>
-        )} */}
+        )}
       </div>
     </div>
-    )
-}
-
+  );
+};
 export default Career;
